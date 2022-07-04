@@ -316,17 +316,14 @@ class Wire(CircuitElement):
 
 
 class ACCircuit:
-    def __init__(self, adj=None, nodes=4, w=0, ground=0, coords=None, current_speed=1, current_density=2):
+    def __init__(self, nodes=4, w=0, ground=0, coords=None, current_speed=1, current_density=2):
         # Rendering options: 
         # coords: ndarray containing the coords of the nodes on the screen
         # current speed: speed of the current in distance per second per amp
         # current density: the number of dots to render per unit distance
 
-        if adj is not None:
-            self.adj = adj
-        else:
-            self.adj = [[None] * (x+1) for x in range(nodes)]
-            self.nodes = nodes
+        self.adj = [[None] * (x+1) for x in range(nodes)]
+        self.nodes = nodes
         self.w = w
         self._voltages = np.zeros(self.nodes)
         self._known_voltages = [False] * self.nodes

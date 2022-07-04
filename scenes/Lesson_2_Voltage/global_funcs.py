@@ -1,0 +1,4 @@
+from manim import *
+
+SPRING_PE_COLOR = YELLOW_C
+ELECTRIC_PE_COLOR = "#2136c2"
